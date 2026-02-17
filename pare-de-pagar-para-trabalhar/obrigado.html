@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compra Confirmada | Pare de Pagar Para Trabalhar</title>
+  <meta name="description" content="Sua compra foi confirmada! Confira os próximos passos para acessar o minicurso Pare de Pagar Para Trabalhar.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/montserrat-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KZNZPL5B');</script>
+  <!-- End Google Tag Manager -->
+
+  <style>
+    .thankyou {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 24px;
+      background: var(--cor-perola);
+    }
+
+    .thankyou__logo {
+      height: 60px;
+      width: auto;
+      margin-bottom: 48px;
+    }
+
+    .thankyou__icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: var(--cor-vinho);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 32px;
+    }
+
+    .thankyou__icon svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    .thankyou__title {
+      font-family: var(--font-display);
+      font-size: 40px;
+      color: var(--cor-vinho);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .thankyou__subtitle {
+      font-family: var(--font-body);
+      font-size: 18px;
+      color: var(--cor-grafite);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .thankyou__steps {
+      max-width: 520px;
+      width: 100%;
+      text-align: left;
+      margin-bottom: 48px;
+    }
+
+    .thankyou__steps-title {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--cor-vinho);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 24px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(91, 26, 42, 0.1);
+    }
+
+    .step:last-child {
+      border-bottom: none;
+    }
+
+    .step__number {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--cor-vinho);
+      line-height: 1;
+      min-width: 32px;
+    }
+
+    .step__content h3 {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--cor-texto);
+      margin-bottom: 4px;
+    }
+
+    .step__content p {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--cor-grafite);
+      line-height: 1.6;
+    }
+
+    .thankyou__cta {
+      margin-bottom: 48px;
+    }
+
+    .thankyou__quote {
+      max-width: 480px;
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--cor-vinho);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .thankyou__cite {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--cor-grafite);
+      font-style: normal;
+    }
+
+    .thankyou__footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(91, 26, 42, 0.1);
+    }
+
+    .thankyou__footer p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--cor-grafite);
+      line-height: 1.6;
+    }
+
+    .thankyou__footer a {
+      color: var(--cor-vinho);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .thankyou__footer a:hover {
+      text-decoration: underline;
+    }
+
+    .thankyou__dev {
+      font-size: 14px;
+      color: var(--cor-grafite);
+      margin-top: 32px;
+    }
+
+    .thankyou__dev a {
+      color: var(--cor-grafite);
+      text-decoration: none;
+    }
+
+    .thankyou__dev a:hover {
+      color: var(--cor-vinho);
+    }
+
+    @media (max-width: 768px) {
+      .thankyou {
+        padding: 40px 20px;
+      }
+
+      .thankyou__title {
+        font-size: 32px;
+      }
+
+      .thankyou__subtitle {
+        font-size: 16px;
+      }
+
+      .thankyou__quote {
+        font-size: 20px;
+      }
+    }
+  </style>
+
+  <!-- DataLayer - Purchase Event -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'purchase',
+      'ecommerce': {
+        'transaction_id': new Date().getTime().toString(),
+        'value': 97.00,
+        'currency': 'BRL',
+        'items': [{
+          'item_name': 'Pare de Pagar Para Trabalhar',
+          'item_category': 'Minicurso',
+          'price': 97.00,
+          'quantity': 1
+        }]
+      }
+    });
+  </script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZNZPL5B"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <main class="thankyou">
+    <a href="/">
+      <img src="../assets/images/logo-marsala.webp" alt="Juliana Moraes" class="thankyou__logo" width="180" height="54">
+    </a>
+
+    <div class="thankyou__icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+
+    <h1 class="thankyou__title">Compra Confirmada!</h1>
+    <p class="thankyou__subtitle">Parabéns pela decisão de parar de pagar para trabalhar. Sua jornada de transformação começa agora.</p>
+
+    <div class="thankyou__steps">
+      <p class="thankyou__steps-title">Próximos passos</p>
+
+      <div class="step">
+        <span class="step__number">1</span>
+        <div class="step__content">
+          <h3>Verifique seu e-mail</h3>
+          <p>Você receberá um e-mail com os dados de acesso à área de membros. Confira também a caixa de spam.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step__number">2</span>
+        <div class="step__content">
+          <h3>Acesse a área de membros</h3>
+          <p>Faça login com os dados recebidos e comece a assistir as aulas imediatamente.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step__number">3</span>
+        <div class="step__content">
+          <h3>Baixe os materiais de apoio</h3>
+          <p>Cada aula tem planilhas e ferramentas práticas. Baixe e use enquanto assiste.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="step__number">4</span>
+        <div class="step__content">
+          <h3>Aplique o método</h3>
+          <p>Em 5 dias, você terá clareza total sobre o que precisa cortar na sua empresa para parar de sangrar dinheiro.</p>
+        </div>
+      </div>
+    </div>
+
+    <blockquote class="thankyou__quote">
+      "Faturamento é vaidade, lucro é sanidade."
+    </blockquote>
+    <cite class="thankyou__cite">Juliana Moraes</cite>
+
+    <div class="thankyou__footer">
+      <p>Dúvidas? Fale com nossa equipe pelo <a href="https://wa.me/5527999706737?text=Ol%C3%A1%2C%20acabei%20de%20comprar%20o%20minicurso%20e%20tenho%20uma%20d%C3%BAvida" target="_blank" rel="noopener">WhatsApp</a></p>
+    </div>
+
+    <p class="thankyou__dev">Desenvolvido por <a href="https://vanttmkt.com" target="_blank" rel="noopener">vanttmkt.com</a></p>
+  </main>
+</body>
+</html>
