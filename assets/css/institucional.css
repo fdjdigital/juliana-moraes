@@ -377,7 +377,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
-  max-width: 800px;
+  max-width: 520px;
   margin: 0 auto;
 }
 
@@ -453,7 +453,7 @@
   }
 
   .contato__options {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
