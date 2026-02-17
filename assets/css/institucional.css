@@ -1,0 +1,494 @@
+/* ==========================================================================
+   INSTITUCIONAL — Juliana Moraes
+   Extensão do style.css base
+   ========================================================================== */
+
+/* ---------- Header Institucional ---------- */
+.header--inst {
+  transform: translateY(0);
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(8px);
+}
+
+.nav {
+  display: none;
+  gap: 28px;
+  align-items: center;
+}
+
+.nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cor-grafite);
+  transition: color var(--transition);
+}
+
+.nav a:hover {
+  color: var(--cor-vinho);
+}
+
+/* Mobile menu toggle */
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--cor-vinho);
+  transition: var(--transition);
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile nav overlay */
+.nav.active {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--cor-branco);
+  padding: 40px 24px;
+  gap: 24px;
+  z-index: 999;
+}
+
+.nav.active a {
+  font-size: 20px;
+}
+
+/* ---------- Hero Institucional ---------- */
+.hero--inst {
+  padding-top: 80px;
+}
+
+.hero__tag {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cor-grafite);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.hero__ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.btn--outline {
+  background: transparent;
+  border: 2px solid var(--cor-vinho);
+  color: var(--cor-vinho);
+}
+
+.btn--outline:hover {
+  background: var(--cor-vinho);
+  color: var(--cor-branco);
+  opacity: 1;
+}
+
+.hero__image--inst {
+  display: none;
+}
+
+/* ---------- Manifesto ---------- */
+.manifesto {
+  padding: 60px 0;
+}
+
+.manifesto__quote {
+  text-align: center;
+  border: none;
+  background: none;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.manifesto__quote p {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--cor-branco);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.manifesto__quote cite {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--cor-vinho);
+  opacity: 0.2;
+}
+
+.timeline__item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline__item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline__marker {
+  position: absolute;
+  left: -28px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--cor-vinho);
+  border: 3px solid var(--cor-branco);
+  box-shadow: 0 0 0 2px var(--cor-vinho);
+}
+
+.timeline__year {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cor-vinho);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.timeline__content h3 {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--cor-texto);
+  margin-bottom: 8px;
+}
+
+.timeline__content p {
+  font-size: 16px;
+  color: var(--cor-grafite);
+  line-height: 1.6;
+}
+
+.timeline__content em {
+  color: var(--cor-vinho);
+  font-style: italic;
+}
+
+/* ---------- Split Quote ---------- */
+.split-quote {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.split-quote__image img {
+  border-radius: var(--radius);
+  width: 100%;
+  object-fit: cover;
+  max-height: 400px;
+}
+
+.split-quote__text {
+  border: none;
+  background: none;
+  padding: 0;
+  max-width: none;
+  margin: 0;
+}
+
+.split-quote__text p {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--cor-vinho);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.split-quote__text cite {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 14px;
+  color: var(--cor-grafite);
+}
+
+/* ---------- Livro ---------- */
+.livro__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.livro__principios {
+  margin-top: 24px;
+}
+
+.livro__principio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 15px;
+  color: var(--cor-grafite);
+  border-bottom: 1px solid #eee;
+}
+
+.livro__principio span {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--cor-vinho);
+  min-width: 28px;
+}
+
+.livro__image img {
+  border-radius: var(--radius);
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Mentoria / H.O.N.R.A. ---------- */
+.mentoria__subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 18px;
+  max-width: 600px;
+  margin: -32px auto 48px;
+}
+
+.honra-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.honra-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.honra-card__letter {
+  font-family: var(--font-display);
+  font-size: 40px;
+  color: var(--cor-branco);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.honra-card h3 {
+  color: var(--cor-branco);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.honra-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.mentoria__cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* ---------- Minicurso Banner ---------- */
+.minicurso-banner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.minicurso-banner__price {
+  margin: 16px 0;
+}
+
+.minicurso-banner__price strong {
+  font-size: 32px;
+  color: var(--cor-vinho);
+}
+
+.minicurso-banner__price span {
+  font-size: 14px;
+  color: var(--cor-grafite);
+}
+
+.minicurso-banner__image img {
+  border-radius: var(--radius);
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Contato ---------- */
+.contato__inner {
+  text-align: center;
+}
+
+.contato__text {
+  color: var(--cor-grafite);
+  margin-bottom: 40px;
+}
+
+.contato__options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contato__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 24px;
+  background: var(--cor-perola);
+  border-radius: var(--radius);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.contato__card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(91, 26, 42, 0.1);
+}
+
+.contato__card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.contato__card p {
+  font-size: 14px;
+  color: var(--cor-grafite);
+}
+
+/* ---------- Footer tagline ---------- */
+.footer__tagline {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   RESPONSIVE — Tablet (768px+)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .nav {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .manifesto__quote p {
+    font-size: 36px;
+  }
+
+  .split-quote {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .livro__inner {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .honra-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .minicurso-banner {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+  }
+
+  .contato__options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE — Desktop (1024px+)
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .hero__inner--inst {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+
+  .hero__image--inst {
+    display: block;
+  }
+
+  .hero__title-main {
+    font-size: 72px;
+  }
+
+  .manifesto__quote p {
+    font-size: 42px;
+  }
+
+  .split-quote__text p {
+    font-size: 40px;
+  }
+
+  .honra-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero__title-main {
+    font-size: 88px;
+  }
+}

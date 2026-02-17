@@ -770,6 +770,21 @@ ul {
   color: rgba(255, 255, 255, 0.4);
 }
 
+.footer__dev {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 8px;
+}
+
+.footer__dev a {
+  color: rgba(255, 255, 255, 0.4);
+  transition: color var(--transition);
+}
+
+.footer__dev a:hover {
+  color: var(--cor-branco);
+}
+
 /* ==========================================================================
    FLOATING CTA (Mobile)
    ========================================================================== */
