@@ -1,0 +1,916 @@
+/* ==========================================================================
+   PARE DE PAGAR PARA TRABALHAR — Página de Vendas
+   Juliana Moraes | DNA da Vitória
+   Identidade Visual: 09_Marca/IDENTIDADE_VISUAL_JULIANA_MORAES.md
+   ========================================================================== */
+
+/* ---------- Fonts ---------- */
+@font-face {
+  font-family: 'Giarek';
+  src: url('../fonts/giarekdemoversionregular-d9za6.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Variables ---------- */
+:root {
+  --cor-vinho: #5B1A2A;
+  --cor-vinho-dark: #4A1522;
+  --cor-grafite: #4D4D4D;
+  --cor-perola: #F0EDEA;
+  --cor-branco: #FFFFFF;
+  --cor-texto: #1A1A1A;
+  --cor-dourado: #D4AF37;
+
+  --font-display: 'Giarek', 'Playfair Display', Georgia, serif;
+  --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --container: 1200px;
+  --gap: 20px;
+  --radius: 8px;
+  --transition: 0.3s ease;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--cor-texto);
+  background: var(--cor-branco);
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---------- Container ---------- */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gap);
+}
+
+/* ---------- Utilities ---------- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  background: var(--cor-vinho);
+  color: var(--cor-branco);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 18px 36px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: opacity var(--transition);
+  text-align: center;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btn--sm {
+  padding: 12px 24px;
+  font-size: 14px;
+}
+
+.btn--white {
+  background: var(--cor-branco);
+  color: var(--cor-vinho);
+}
+
+.btn--white:hover {
+  opacity: 0.9;
+}
+
+/* ---------- Badge ---------- */
+.badge {
+  display: inline-block;
+  background: var(--cor-vinho);
+  color: var(--cor-branco);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: 80px 0;
+}
+
+.section--light {
+  background: var(--cor-perola);
+}
+
+.section--white {
+  background: var(--cor-branco);
+}
+
+.section--vinho {
+  background: var(--cor-vinho);
+}
+
+.section__title {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: normal;
+  line-height: 1.2;
+  color: var(--cor-vinho);
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section__title em {
+  font-style: normal;
+}
+
+.section__title--left {
+  text-align: left;
+}
+
+.section__title--white {
+  color: var(--cor-branco);
+}
+
+.section__subtitle {
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--cor-grafite);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+}
+
+.header.active {
+  transform: translateY(0);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.header__logo img {
+  height: 40px;
+  width: auto;
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+  background: var(--cor-perola);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0 40px;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero__title {
+  margin-bottom: 24px;
+}
+
+.hero__title-main {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: normal;
+  line-height: 1;
+  color: var(--cor-vinho);
+}
+
+.hero__title-sub {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--cor-grafite);
+  margin-top: 8px;
+}
+
+.hero__subtitle {
+  font-size: 17px;
+  color: var(--cor-grafite);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 560px;
+}
+
+.hero__seals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.seal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--cor-grafite);
+}
+
+.seal svg {
+  flex-shrink: 0;
+  color: var(--cor-vinho);
+}
+
+.hero__image {
+  display: none;
+}
+
+.hero__image img {
+  border-radius: var(--radius);
+  object-fit: cover;
+  width: 100%;
+  max-height: 680px;
+}
+
+/* ==========================================================================
+   PAIN SECTION
+   ========================================================================== */
+.pain-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.pain-card {
+  background: var(--cor-branco);
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 12px rgba(91, 26, 42, 0.06);
+  text-align: center;
+}
+
+.pain-card__icon {
+  margin-bottom: 16px;
+  color: var(--cor-vinho);
+}
+
+.pain-card p {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--cor-texto);
+}
+
+.pain-text {
+  max-width: 720px;
+  margin: 0 auto 32px;
+}
+
+.pain-text p {
+  margin-bottom: 16px;
+}
+
+.pain-list {
+  margin: 16px 0;
+  padding-left: 0;
+}
+
+.pain-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 10px;
+}
+
+.pain-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 8px;
+  background: var(--cor-vinho);
+  border-radius: 50%;
+}
+
+/* ---------- Quote ---------- */
+.quote {
+  max-width: 640px;
+  margin: 48px auto;
+  padding: 32px;
+  border-left: 4px solid var(--cor-vinho);
+  background: var(--cor-branco);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.quote p {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 1.4;
+  color: var(--cor-vinho);
+  margin-bottom: 8px;
+}
+
+.quote cite {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-size: 14px;
+  color: var(--cor-grafite);
+}
+
+.quote--inline {
+  margin: 24px 0;
+  background: var(--cor-perola);
+}
+
+.quote--white {
+  border-left-color: var(--cor-branco);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.quote--white p {
+  color: var(--cor-branco);
+}
+
+/* ==========================================================================
+   SOLUTION / LESSONS
+   ========================================================================== */
+.solution__intro {
+  max-width: 720px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+
+.solution__intro p {
+  margin-bottom: 16px;
+}
+
+.lessons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.lesson-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  background: var(--cor-perola);
+  padding: 24px;
+  border-radius: var(--radius);
+}
+
+.lesson-card__number {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: var(--cor-vinho);
+  color: var(--cor-branco);
+  font-family: var(--font-display);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.lesson-card__content h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--cor-texto);
+  margin-bottom: 4px;
+}
+
+.lesson-card__content p {
+  font-size: 15px;
+  color: var(--cor-grafite);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   BULLETS
+   ========================================================================== */
+.bullets {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--cor-branco);
+  padding: 20px 24px;
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.bullet-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--cor-vinho);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.bullet-text strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--cor-texto);
+  margin-bottom: 2px;
+}
+
+.bullet-text p {
+  font-size: 15px;
+  color: var(--cor-grafite);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   ABOUT
+   ========================================================================== */
+.about__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.about__image img {
+  border-radius: var(--radius);
+  object-fit: cover;
+  width: 100%;
+  max-height: 520px;
+}
+
+.about__content p {
+  margin-bottom: 16px;
+}
+
+.credentials {
+  margin-top: 32px;
+}
+
+.credential {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.credential svg {
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   PRICE
+   ========================================================================== */
+.price__inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.price-box {
+  background: var(--cor-branco);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.price-box__anchor {
+  padding: 32px 32px 24px;
+}
+
+.anchor-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 15px;
+  color: var(--cor-grafite);
+  border-bottom: 1px solid #eee;
+}
+
+.anchor-row:last-child {
+  border-bottom: none;
+}
+
+.anchor-row--total {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--cor-texto);
+  padding-top: 16px;
+}
+
+.anchor-row--total s {
+  color: #999;
+}
+
+.price-box__final {
+  background: var(--cor-perola);
+  padding: 40px 32px;
+  text-align: center;
+}
+
+.price-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--cor-grafite);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.price-value {
+  font-family: var(--font-display);
+  font-size: 64px;
+  color: var(--cor-vinho);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.price-installment {
+  font-size: 15px;
+  color: var(--cor-grafite);
+  margin-bottom: 24px;
+}
+
+.price-seals {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--cor-grafite);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   GUARANTEE
+   ========================================================================== */
+.guarantee__inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.guarantee__icon {
+  display: flex;
+  justify-content: center;
+}
+
+.guarantee__content p {
+  margin-bottom: 12px;
+}
+
+/* ==========================================================================
+   FAQ
+   ========================================================================== */
+.faq {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--cor-texto);
+  text-align: left;
+  gap: 16px;
+}
+
+.faq-question:hover {
+  color: var(--cor-vinho);
+}
+
+.faq-chevron {
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.faq-item.active .faq-chevron {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-answer p {
+  padding-bottom: 20px;
+  font-size: 16px;
+  color: var(--cor-grafite);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   CTA FINAL
+   ========================================================================== */
+.cta-final__inner {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-final__text {
+  margin-bottom: 32px;
+}
+
+.cta-final__text p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 16px;
+}
+
+.cta-final__text strong {
+  color: var(--cor-branco);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+  background: var(--cor-vinho-dark);
+  padding: 48px 0;
+  text-align: center;
+}
+
+.footer__logo {
+  margin: 0 auto 16px;
+  height: 36px;
+  width: auto;
+}
+
+.footer__text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.footer__links a {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color var(--transition);
+}
+
+.footer__links a:hover {
+  color: var(--cor-branco);
+}
+
+.footer__disclaimer {
+  max-width: 600px;
+  margin: 0 auto 16px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.35);
+  line-height: 1.5;
+}
+
+.footer__copy {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================================
+   FLOATING CTA (Mobile)
+   ========================================================================== */
+.floating-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--cor-vinho);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.floating-cta a {
+  display: block;
+  padding: 16px;
+  text-align: center;
+  color: var(--cor-branco);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.floating-cta.active {
+  display: block;
+}
+
+.floating-cta.hidden {
+  display: none !important;
+}
+
+/* ==========================================================================
+   RESPONSIVE — Tablet (768px+)
+   ========================================================================== */
+@media (min-width: 768px) {
+  :root {
+    --gap: 32px;
+  }
+
+  .section {
+    padding: 100px 0;
+  }
+
+  .section__title {
+    font-size: 48px;
+    margin-bottom: 56px;
+  }
+
+  .hero__title-main {
+    font-size: 64px;
+  }
+
+  .hero__title-sub {
+    font-size: 26px;
+  }
+
+  .pain-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .lessons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .guarantee__inner {
+    grid-template-columns: auto 1fr;
+    text-align: left;
+    align-items: start;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE — Desktop (1024px+)
+   ========================================================================== */
+@media (min-width: 1024px) {
+  :root {
+    --gap: 80px;
+  }
+
+  body {
+    font-size: 18px;
+  }
+
+  .section {
+    padding: 120px 0;
+  }
+
+  .hero {
+    padding: 0;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    min-height: 100vh;
+  }
+
+  .hero__image {
+    display: block;
+  }
+
+  .hero__title-main {
+    font-size: 80px;
+  }
+
+  .hero__title-sub {
+    font-size: 28px;
+    margin-top: 12px;
+  }
+
+  .about__inner {
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .price-box__anchor {
+    padding: 40px 48px 32px;
+  }
+
+  .price-box__final {
+    padding: 48px;
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE — Large (1440px+)
+   ========================================================================== */
+@media (min-width: 1440px) {
+  .hero__title-main {
+    font-size: 96px;
+  }
+
+  .section__title {
+    font-size: 56px;
+  }
+}
+
+/* ---------- Bottom spacing for floating CTA on mobile ---------- */
+@media (max-width: 767px) {
+  .footer {
+    padding-bottom: 80px;
+  }
+}
